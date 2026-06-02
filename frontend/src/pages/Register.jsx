@@ -1,12 +1,14 @@
 import axios from "../services/api";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 function Register() {
     const [nom, setNom] = useState("");
     const [prenom, setPrenom] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const navigate = useNavigate();
 
     const register = async () => {
 
@@ -18,6 +20,7 @@ function Register() {
         });
 
         alert("Utilisateur créé");
+        navigate("/login");
     };
 
     return (

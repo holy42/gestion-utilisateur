@@ -1,10 +1,13 @@
 import axios from "../services/api";
 import { useState } from "react";
 import React from "react";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Login() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const navigate = useNavigate();
 
     const login = async () => {
 
@@ -14,6 +17,8 @@ function Login() {
         });
 
         alert("Utilisateur connecté");
+        navigate("/dashboard");
+
     };
 
     return (
